@@ -7,19 +7,22 @@ class UserForm extends Component {
     };
 
     state = {
-        username: ''
-    }
+        username: '',
+        text: ''
+    };
 
     render() {
         return (
-            <div>
-                Name: <input type = 'text' value = {this.state.username} onChange = {this.handleUserChange} />
-            </div>
+            <form onChange = {this.handleUserChange}>
+                Name: <input name='name' type = 'text' value = {this.state.username}  />
+                Text: <input name='text' type = 'text' value = {this.state.text}  />
+            </form>
         )
     }
 
 
     handleUserChange = (ev) => {
+        console.log(ev);
         if (ev.target.value.length > 10) return
 
         this.setState({

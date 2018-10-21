@@ -1,11 +1,13 @@
 import React, {Component} from 'react'
 import Comment from './Comment'
 import toggleOpen from '../decorators/toggleOpen'
+import UserForm from "./UserForm";
 
 function CommentList({comments = [], isOpen, toggleOpen}) {
     const text = isOpen ? 'hide comments' : 'show comments';
     return (
         <div>
+            <UserForm />
             <button onClick={toggleOpen}>{text}</button>
             {getBody({comments, isOpen})}
         </div>
